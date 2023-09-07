@@ -7,13 +7,13 @@ namespace bycoders.cnab.api.Configuration
     {
         public static IServiceCollection ConfigureDbContext(this IServiceCollection serviceCollection, ConfigurationManager configManager)
         {
-            serviceCollection.AddDbContext<DbContextMapping>(options =>
+            serviceCollection.AddDbContext<ApplicationDbContext>(options =>
             {
                 var connectionString = configManager.GetConnectionString("DefaultConnection"); 
-                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));                
             });
 
             return serviceCollection;
-        }
+        }      
     }      
 }

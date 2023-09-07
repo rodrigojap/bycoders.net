@@ -19,12 +19,14 @@ services:
       service: web
 
   bycoders.database:
-    image: mysql:8.0.22
-    ports:
-      - "3306:3306"    
+    image: mysql
     restart: always
+    ports:
+      - "3306:3306"
+    expose:
+      - "3306"
     environment: 
-      MYSQL_ROOT_PASSWORD: pass@1234
+      MYSQL_ROOT_PASSWORD: pass@root
       MYSQL_USER: newuser
-      MYSQL_PASSWORD: pass@1234
+      MYSQL_PASSWORD: pass@user
       MYSQL_DATABASE: coderbyte
