@@ -6,6 +6,8 @@ services:
     build:
       context: .
       dockerfile: bycoders.cnab.api/Dockerfile
+    depends_on: 
+      - bycoders.database
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
     ports:
@@ -15,3 +17,14 @@ services:
     extends:
       file: ./bycoders.cnab.webclient/docker-compose.yml
       service: web
+
+  bycoders.database:
+    image: mysql:8.0.22
+    ports:
+      - "3306:3306"    
+    restart: always
+    environment: 
+      MYSQL_ROOT_PASSWORD: pass@1234
+      MYSQL_USER: newuser
+      MYSQL_PASSWORD: pass@1234
+      MYSQL_DATABASE: coderbyte

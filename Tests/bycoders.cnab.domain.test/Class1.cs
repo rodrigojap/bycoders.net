@@ -1,4 +1,4 @@
-﻿namespace bycoders.cnab.domain
+﻿namespace bycoders.cnab.domain.test
 {
     public class Class1
     {

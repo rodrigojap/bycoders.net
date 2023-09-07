@@ -15,13 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{F753BD05-9
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{163EE69B-9CE0-4425-86FB-C04C16802900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.api", "bycoders.cnab.api\bycoders.cnab.api.csproj", "{24E1C37D-E5E9-4B8A-ADA3-AC03EB811183}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.api", "bycoders.cnab.api\bycoders.cnab.api.csproj", "{24E1C37D-E5E9-4B8A-ADA3-AC03EB811183}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.domain", "bycoders.cnab.domain\bycoders.cnab.domain.csproj", "{34818E05-0CE4-4843-ACFD-6CAB09E6C45F}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{BF6773DA-2AB2-4352-A952-E6DC9F246F34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.domain", "bycoders.cnab.domain\bycoders.cnab.domain.csproj", "{34818E05-0CE4-4843-ACFD-6CAB09E6C45F}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{BF5508D7-67EC-469E-BAD0-0D034FC61DD1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{00400002-F271-4958-AD68-D494C20DBE0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.application", "bycoders.cnab.application\bycoders.cnab.application.csproj", "{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3FCA2889-760C-425F-AC95-EF0B20E690FB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.services", "bycoders.cnab.services\bycoders.cnab.services.csproj", "{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +47,14 @@ Global
 		{BF5508D7-67EC-469E-BAD0-0D034FC61DD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF5508D7-67EC-469E-BAD0-0D034FC61DD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF5508D7-67EC-469E-BAD0-0D034FC61DD1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,7 +66,10 @@ Global
 		{163EE69B-9CE0-4425-86FB-C04C16802900} = {FED22289-81F5-464D-AC07-9A2B2C9DDEC1}
 		{24E1C37D-E5E9-4B8A-ADA3-AC03EB811183} = {C6D63D55-1A27-4B65-B8A0-6C706D52DF98}
 		{34818E05-0CE4-4843-ACFD-6CAB09E6C45F} = {F390E447-1B33-4931-83D7-378A8382F39C}
-		{BF6773DA-2AB2-4352-A952-E6DC9F246F34} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
+		{00400002-F271-4958-AD68-D494C20DBE0E} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
+		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761} = {00400002-F271-4958-AD68-D494C20DBE0E}
+		{3FCA2889-760C-425F-AC95-EF0B20E690FB} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
+		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327} = {3FCA2889-760C-425F-AC95-EF0B20E690FB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC54F196-CFFA-49DC-8153-F0B019385BBF}
