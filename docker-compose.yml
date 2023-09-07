@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  bycoders.cnab.api:
+    image: ${DOCKER_REGISTRY-}bycoderscnabapi
+    build:
+      context: .
+      dockerfile: bycoders.cnab.api/Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5001:80"
+ 
+  # bycoders.cnab.web:
+  #   extends:
+  #     file: ./bycoders.cnab.webclient/docker-compose.yml
+  #     service: web
