@@ -9,7 +9,7 @@ namespace bycoders.cnab.unit.tests.Services
 
         public CNABOperationParserTest()
         {
-            _parser = new CNABOperationParser("");
+            _parser = new CNABOperationParser();
         }
 
         [Fact]

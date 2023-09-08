@@ -9,9 +9,8 @@ namespace bycoders.cnab.services
         private CNABOperation CnabOperationEntity { get; set; } = new CNABOperation();
         const int CNABLineSize = 80;
 
-        public CNABOperationParser(string entryLine)
-        {                
-            CnabLine = entryLine;
+        public CNABOperationParser()
+        {
             InitializeCnabOperationEntity();
         }
 
