@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace bycoders.cnab.domain.Entities
+﻿namespace bycoders.cnab.domain.Entities
 {
     public class CNABOperation
     {
@@ -17,8 +11,6 @@ namespace bycoders.cnab.domain.Entities
         public string CPF { get; set; }
 
         public string Card { get; set; }
-
-        public DateTime OperationHour { get; set; }
 
         public string StoreOwner { get; set; }
 

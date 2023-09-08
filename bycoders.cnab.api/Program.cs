@@ -1,5 +1,4 @@
 using bycoders.cnab.api.Configuration;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 

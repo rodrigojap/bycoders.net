@@ -46,8 +46,7 @@ namespace bycoders.cnab.api.Controllers
             {
                 Card = "c",
                 CPF = "d",
-                OperationDate = DateTime.Now,
-                OperationHour = DateTime.Now,
+                OperationDate = DateTime.Now,                
                 StoreName = "my egs",
                 StoreOwner = "my fuckin engs",
                 Value = 100,
@@ -56,6 +55,5 @@ namespace bycoders.cnab.api.Controllers
 
             await _context.SaveChangesAsync();
         }
-
     }
 }

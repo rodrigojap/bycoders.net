@@ -23,11 +23,17 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{00400002-F271-4958-AD68-D494C20DBE0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.application", "bycoders.cnab.application\bycoders.cnab.application.csproj", "{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.application", "bycoders.cnab.application\bycoders.cnab.application.csproj", "{96E741E9-E780-4E4B-9C2A-2E9C6FE51761}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3FCA2889-760C-425F-AC95-EF0B20E690FB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.services", "bycoders.cnab.services\bycoders.cnab.services.csproj", "{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.services", "bycoders.cnab.services\bycoders.cnab.services.csproj", "{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.unit.tests", "Tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests.csproj", "{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{78B4B192-BCF5-4255-B3A8-DF046556F11A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.extensions", "bycoders.cnab.extensions\bycoders.cnab.extensions.csproj", "{A21469D7-3F08-423B-80A2-E4CF81A0CB80}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +61,14 @@ Global
 		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A21469D7-3F08-423B-80A2-E4CF81A0CB80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A21469D7-3F08-423B-80A2-E4CF81A0CB80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A21469D7-3F08-423B-80A2-E4CF81A0CB80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A21469D7-3F08-423B-80A2-E4CF81A0CB80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +84,9 @@ Global
 		{96E741E9-E780-4E4B-9C2A-2E9C6FE51761} = {00400002-F271-4958-AD68-D494C20DBE0E}
 		{3FCA2889-760C-425F-AC95-EF0B20E690FB} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
 		{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327} = {3FCA2889-760C-425F-AC95-EF0B20E690FB}
+		{1ECC6A95-BDB0-4F65-8C46-E28420752DB1} = {F753BD05-94C0-45AD-B76F-FF8E8FEE6B8F}
+		{78B4B192-BCF5-4255-B3A8-DF046556F11A} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
+		{A21469D7-3F08-423B-80A2-E4CF81A0CB80} = {78B4B192-BCF5-4255-B3A8-DF046556F11A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC54F196-CFFA-49DC-8153-F0B019385BBF}

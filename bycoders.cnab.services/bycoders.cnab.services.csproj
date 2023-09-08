@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\bycoders.cnab.domain\bycoders.cnab.domain.csproj" />
+    <ProjectReference Include="..\bycoders.cnab.extensions\bycoders.cnab.extensions.csproj" />
   </ItemGroup>
 
 </Project>
