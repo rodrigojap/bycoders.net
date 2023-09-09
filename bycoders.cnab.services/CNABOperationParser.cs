@@ -4,28 +4,23 @@ using bycoders.cnab.extensions;
 namespace bycoders.cnab.services
 {
     public class CNABOperationParser : ICNABOperationParser
-    {        
-        private string CnabLine { get; set; } = string.Empty;                
+    {                              
         private CNABOperation CnabOperationEntity { get; set; } = new CNABOperation();
         const int CNABLineSize = 80;
 
         public CNABOperationParser()
         {
             InitializeCnabOperationEntity();
-        }
+        }        
 
-        public void SetNewEntry(string newEntryLine)
+        public CNABOperation BuildCNABOperationEntity(string newEntry)
         {
-            CnabLine = newEntryLine;
             InitializeCnabOperationEntity();
-        }
 
-        public CNABOperation BuildCNABOperationEntity()
-        {            
-            ValidateNullEmptyCnabLine();
-            ValidateCnabLineSize();
+            ValidateNullEmptyCnabLine(newEntry);
+            ValidateCnabLineSize(newEntry);
 
-            var SpanCnabLine = CnabLine.AsSpan();
+            var SpanCnabLine = newEntry.AsSpan();
             
             FillOperationType(SpanCnabLine);
             FillOperationDate(SpanCnabLine);
@@ -38,14 +33,14 @@ namespace bycoders.cnab.services
             return CnabOperationEntity;
         }
        
-        private void ValidateNullEmptyCnabLine()
+        private void ValidateNullEmptyCnabLine(string newEntry)
         {
-            if (string.IsNullOrEmpty(CnabLine)) throw new ArgumentException("Arquivo inválido! A linha se encontra vazia!");
+            if (string.IsNullOrEmpty(newEntry)) throw new ArgumentException("Arquivo inválido! A linha se encontra vazia!");
         }
 
-        private void ValidateCnabLineSize()
+        private void ValidateCnabLineSize(string newEntry)
         {
-            if (CnabLine.Length != CNABLineSize) throw new ArgumentException($"Arquivo inválido! O tamanho experado é {CNABLineSize}, o tamanho recebido foi ${CnabLine.Length}!");
+            if (newEntry.Length != CNABLineSize) throw new ArgumentException($"Arquivo inválido! O tamanho experado é {CNABLineSize}, o tamanho recebido foi ${newEntry.Length}!");
         }        
 
         private void InitializeCnabOperationEntity()
@@ -99,8 +94,6 @@ namespace bycoders.cnab.services
 
     public interface ICNABOperationParser
     {
-        CNABOperation BuildCNABOperationEntity();
-
-        void SetNewEntry(string newEntryLine);
+        CNABOperation BuildCNABOperationEntity(string newEntry);        
     }
 }

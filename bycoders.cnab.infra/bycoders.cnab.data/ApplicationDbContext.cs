@@ -1,7 +1,7 @@
 ﻿using bycoders.cnab.domain.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace bycoders.cnab.api.Configuration
+namespace bycoders.cnab.data
 {
     public class ApplicationDbContext : DbContext
     {        

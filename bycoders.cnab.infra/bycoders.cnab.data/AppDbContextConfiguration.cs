@@ -1,5 +1,7 @@
-﻿using bycoders.cnab.domain.Entities;
+﻿using bycoders.cnab.data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace bycoders.cnab.api.Configuration
 {

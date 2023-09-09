@@ -1,17 +1,17 @@
 version: '3.8'
 
 services:
-  bycoders.cnab.api:
-    image: ${DOCKER_REGISTRY-}bycoderscnabapi
-    build:
-      context: .
-      dockerfile: bycoders.cnab.api/Dockerfile
-    depends_on: 
-      - bycoders.database
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Development
-    ports:
-      - "5001:80"
+  # bycoders.cnab.api:
+  #   image: ${DOCKER_REGISTRY-}bycoderscnabapi
+  #   build:
+  #     context: .
+  #     dockerfile: bycoders.cnab.api/Dockerfile
+  #   depends_on: 
+  #     - bycoders.database
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Development
+  #   ports:
+  #     - "5001:80"
  
   # bycoders.cnab.web:
   #   extends:

@@ -1,8 +1,7 @@
 ﻿using bycoders.cnab.api.Models.Input;
 using bycoders.cnab.application.UseCases.Contracts;
+using bycoders.cnab.data;
 using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace bycoders.cnab.api.Controllers
 {
@@ -11,33 +10,40 @@ namespace bycoders.cnab.api.Controllers
     public class CNABOperationsController : ControllerBase
     {
         private readonly IProcessCnabOperations ProcessCnabOperations;
+        private readonly ApplicationDbContext ApplicationDbContext;
 
-        public CNABOperationsController(IProcessCnabOperations processCnabOperations)
+        public CNABOperationsController(IProcessCnabOperations processCnabOperations, ApplicationDbContext applicationDbContext)
         {
             ProcessCnabOperations = processCnabOperations;
+            ApplicationDbContext = applicationDbContext;
+            ApplicationDbContext.PopulateDb();
         }
 
-        // GET: api/<CNABOperationsController>
         [HttpGet]
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET api/<CNABOperationsController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public string GetSummary(int id)
         {
             return "value";
         }
 
-        // POST api/<CNABOperationsController>
         [HttpPost]
-        public IActionResult Post([FromForm] CnabFormFileInput File)
+        public async Task<IActionResult> Post([FromForm] CnabFormFileInput File)
         {
-            ProcessCnabOperations.ProcessCnabFormFile(File.FormFile);
+            try
+            {
+                await ProcessCnabOperations.ProcessCnabFormFile(File.FormFile);
 
-            return Ok("ai deus");
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }            
         }
     }
 }

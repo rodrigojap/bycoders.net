@@ -20,9 +20,8 @@ namespace bycoders.cnab.services
             {
                 while (reader.Peek() >= 0)
                 {
-                    var entryLine = await reader.ReadLineAsync() ?? "";
-                    CNABOperationParser.SetNewEntry(entryLine);
-                    result.Add(CNABOperationParser.BuildCNABOperationEntity());
+                    var entryLine = await reader.ReadLineAsync() ?? "";                    
+                    result.Add(CNABOperationParser.BuildCNABOperationEntity(entryLine));
                 }
             }
             return result;

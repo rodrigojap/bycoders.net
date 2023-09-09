@@ -1,6 +1,4 @@
 using bycoders.cnab.api.Configuration;
-using bycoders.cnab.application.UseCases.Contracts;
-using bycoders.cnab.application.UseCases.Impl;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,7 +17,6 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.ConfigureDbContext(builder.Configuration);
