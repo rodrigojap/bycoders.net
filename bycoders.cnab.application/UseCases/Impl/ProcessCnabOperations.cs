@@ -1,5 +1,6 @@
 ﻿using bycoders.cnab.application.UseCases.Contracts;
 using bycoders.cnab.data;
+using bycoders.cnab.domain.Interfaces;
 using bycoders.cnab.services;
 using Microsoft.AspNetCore.Http;
 
@@ -9,13 +10,13 @@ namespace bycoders.cnab.application.UseCases.Impl
     {
         private readonly ICNABOperationListParser CNABOperationListParser;
         private readonly IFormFileValidator FileValidator;
-        private readonly ApplicationDbContext DbContext;
+        private readonly ICNABOperationsRepository CnabRepository;
 
-        public ProcessCnabOperations(ICNABOperationListParser cNABOperationListParser, IFormFileValidator formFileValidator, ApplicationDbContext dbContext)
+        public ProcessCnabOperations(ICNABOperationListParser cNABOperationListParser, IFormFileValidator formFileValidator, ICNABOperationsRepository cnabRepository)
         {
             CNABOperationListParser = cNABOperationListParser;
             FileValidator = formFileValidator;
-            DbContext = dbContext;
+            CnabRepository = cnabRepository;
         }
 
         public async Task ProcessCnabFormFile(IFormFile CnabFormFile)
@@ -26,8 +27,8 @@ namespace bycoders.cnab.application.UseCases.Impl
 
                 var listOfCnabOperations = await CNABOperationListParser.ParseFileIntoCNABEntities(CnabFormFile);
 
-                await DbContext.CNABOperations.AddRangeAsync(listOfCnabOperations);
-                await DbContext.SaveChangesAsync();
+                await CnabRepository.AddOperationsAsync(listOfCnabOperations); 
+                await CnabRepository.SaveAsync(); 
             }
             catch (Exception)
             {

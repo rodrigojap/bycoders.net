@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\bycoders.cnab.application\bycoders.cnab.application.csproj" />
     <ProjectReference Include="..\..\..\bycoders.cnab.services\bycoders.cnab.services.csproj" />
   </ItemGroup>
 

@@ -1,12 +1,4 @@
 ﻿using bycoders.cnab.services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.Internal;
-using Moq;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace bycoders.cnab.unit.tests.Services
 {

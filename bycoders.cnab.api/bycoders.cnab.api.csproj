@@ -18,6 +18,7 @@
   <ItemGroup>
     <ProjectReference Include="..\bycoders.cnab.application\bycoders.cnab.application.csproj" />
     <ProjectReference Include="..\bycoders.cnab.domain\bycoders.cnab.domain.csproj" />
+    <ProjectReference Include="..\bycoders.cnab.infra\bycoders.cnab.data\bycoders.cnab.data.csproj" />
     <ProjectReference Include="..\bycoders.cnab.services\bycoders.cnab.services.csproj" />
   </ItemGroup>
 
