@@ -11,8 +11,10 @@ namespace bycoders.cnab.api.Configuration
         {
             serviceCollection.AddDbContext<ApplicationDbContext>(options =>
             {
-                var connectionString = configManager.GetConnectionString("DefaultConnection"); 
-                options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));                
+                //var connectionString = configManager.GetConnectionString("DefaultConnection"); 
+                //options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));                
+                var connectionString = Environment.GetEnvironmentVariable("ConnectionString");
+                options.UseNpgsql(connectionString);
             });
 
             return serviceCollection;
