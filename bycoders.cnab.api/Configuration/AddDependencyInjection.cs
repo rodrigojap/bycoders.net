@@ -13,6 +13,7 @@ namespace bycoders.cnab.api.Configuration
         {            
             serviceCollection.AddScoped<ICNABOperationParser, CNABOperationParser>();
             serviceCollection.AddScoped<IProcessCnabOperations, ProcessCnabOperations>();
+            serviceCollection.AddScoped<IGetSummaryOperationsByStore, GetSummaryOperationsByStore>();            
             serviceCollection.AddScoped<ICNABOperationListParser, CNABOperationListParser>();
             serviceCollection.AddScoped<IFormFileValidator, FormFileValidator>();            
 

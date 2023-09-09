@@ -6,5 +6,7 @@ namespace bycoders.cnab.domain.Interfaces
     {
         Task AddOperationsAsync(IList<CNABOperation> CNABOperations);
         Task SaveAsync();
+        Task<IList<string>> GetStores();
+        Task<IList<CNABOperation>> GetOperationsByStoreName(string StoreName);
     }
 }

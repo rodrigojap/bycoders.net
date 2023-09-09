@@ -25,7 +25,7 @@ namespace bycoders.cnab.unit.tests.Application
         }
 
         [Fact]
-        public void test()
+        public void When_FileIsValid_ShouldSaveAndCommit()
         {
             var formFile = FormFileMock.BuildFormFileMock(".txt");
             IList<CNABOperation> result = new List<CNABOperation>() { new CNABOperation { } };            

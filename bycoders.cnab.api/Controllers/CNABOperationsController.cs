@@ -1,6 +1,7 @@
 ﻿using bycoders.cnab.api.Models.Input;
 using bycoders.cnab.application.UseCases.Contracts;
 using bycoders.cnab.data;
+using bycoders.cnab.domain.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace bycoders.cnab.api.Controllers
@@ -10,25 +11,50 @@ namespace bycoders.cnab.api.Controllers
     public class CNABOperationsController : ControllerBase
     {
         private readonly IProcessCnabOperations ProcessCnabOperations;
+        private readonly IGetSummaryOperationsByStore SummaryOperationsByStore;
         private readonly ApplicationDbContext ApplicationDbContext;
+        private readonly ICNABOperationsRepository CnabOperationsRepository;
 
-        public CNABOperationsController(IProcessCnabOperations processCnabOperations, ApplicationDbContext applicationDbContext)
+        public CNABOperationsController(
+            IProcessCnabOperations processCnabOperations,
+            IGetSummaryOperationsByStore summaryOperationsByStore,
+            ApplicationDbContext applicationDbContext, 
+            ICNABOperationsRepository operationsRepository
+            )
         {
             ProcessCnabOperations = processCnabOperations;
+            SummaryOperationsByStore = summaryOperationsByStore;
             ApplicationDbContext = applicationDbContext;
+            CnabOperationsRepository = operationsRepository;
             ApplicationDbContext.PopulateDb();
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public async Task<IActionResult> Get()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var result = await CnabOperationsRepository.GetStores();                
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao obter Lojas: [{ex.Message}]");
+            }                        
         }
 
-        [HttpGet("{id}")]
-        public string GetSummary(int id)
+        [HttpGet("{storeName}")]
+        public async Task<IActionResult> GetDataByStoreName(string storeName)
         {
-            return "value";
+            try
+            {
+                var result = await SummaryOperationsByStore.GetSummary(storeName);
+                return Ok(result);  
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao obter operações da loja '{storeName}': [{ex.Message}]");
+            }
         }
 
         [HttpPost]
