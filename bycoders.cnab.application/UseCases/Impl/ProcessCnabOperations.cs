@@ -8,11 +8,13 @@ namespace bycoders.cnab.application.UseCases.Impl
     public class ProcessCnabOperations : IProcessCnabOperations
     {
         private readonly ICNABOperationListParser CNABOperationListParser;
+        private readonly IFormFileValidator FileValidator;
         private readonly ApplicationDbContext DbContext;
 
-        public ProcessCnabOperations(ICNABOperationListParser cNABOperationListParser, ApplicationDbContext dbContext)
+        public ProcessCnabOperations(ICNABOperationListParser cNABOperationListParser, IFormFileValidator formFileValidator, ApplicationDbContext dbContext)
         {
             CNABOperationListParser = cNABOperationListParser;
+            FileValidator = formFileValidator;
             DbContext = dbContext;
         }
 
@@ -20,6 +22,8 @@ namespace bycoders.cnab.application.UseCases.Impl
         {
             try
             {
+                FileValidator.Validate(CnabFormFile);
+
                 var listOfCnabOperations = await CNABOperationListParser.ParseFileIntoCNABEntities(CnabFormFile);
 
                 await DbContext.CNABOperations.AddRangeAsync(listOfCnabOperations);
@@ -28,8 +32,7 @@ namespace bycoders.cnab.application.UseCases.Impl
             catch (Exception)
             {
                 throw;
-            }
-            
+            }            
         }
     }
 }
