@@ -14,10 +14,12 @@ services:
     ports:
       - "5001:80"    
  
-  # bycoders.cnab.web:
-  #   extends:
-  #     file: ./bycoders.cnab.webclient/docker-compose.yml
-  #     service: web  
+  bycoders.cnab.web:
+    extends:
+      file: ./bycoders.cnab.webclient/docker-compose.yml
+      service: web  
+    depends_on:
+      - bycoders.cnab.api
   
   bycoders.database:
     image: postgres
