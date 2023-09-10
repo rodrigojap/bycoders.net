@@ -1,18 +1,20 @@
 import useSWR from "swr";
 import axios from "axios";
 import { useState } from "react";
-
-const fetcher = (url: string) => fetch(url).then((res) => res.json());
+import { BASE_URL } from "../constants/routes";
+import { jsonFetcher } from "../utils/fetcher.utils";
+import { DisplayStores } from "../components/display";
+import { UploadFile } from "../components/upload";
 
 export default function Index() {
   const { data, error, isLoading } = useSWR(
-    "http://localhost:5001/api/CNABOperations",
-    fetcher
+    `${BASE_URL}CNABOperations`,
+    jsonFetcher
   );
+
   const [file, setFile] = useState();
 
   const saveFile = (e) => {
-    console.log(e);
     setFile(e.target.files[0]);
   };
 
@@ -21,25 +23,18 @@ export default function Index() {
     formData.append("formFile", file);
 
     try {
-      const res = await axios.post(
-        "http://localhost:5001/api/CNABOperations",
-        formData
-      );
+      await axios.post(`${BASE_URL}CNABOperations`, formData);
     } catch (error) {}
   };
 
-  if (error) return <div>Failed to load</div>;
-  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Não foi possível buscar os registros</div>;
+  if (isLoading) return <div>Carregando...</div>;
   if (!data) return null;
 
   return (
-    <ul>
-      <input type="file" onChange={saveFile}></input>
-      <input
-        type="button"
-        value="upload"
-        onClick={() => handleUpload()}
-      ></input>
-    </ul>
+    <>
+      <UploadFile handleUpload={handleUpload} saveFile={saveFile} />
+      <DisplayStores stores={data} />
+    </>
   );
 }
