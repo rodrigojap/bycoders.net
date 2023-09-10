@@ -1,4 +1,4 @@
-import useSWR, { useSWRConfig } from 'swr'
+import useSWR, { useSWRConfig } from "swr";
 import axios from "axios";
 import { useState } from "react";
 import { BASE_URL } from "../constants/routes";
@@ -7,34 +7,35 @@ import { DisplayStores } from "../components/display";
 import { UploadFile } from "../components/upload";
 
 export default function Index() {
-  const { mutate } = useSWRConfig()
-  const { data, error, isLoading } = useSWR(
-    `${BASE_URL}CNABOperations`,
-    jsonFetcher
-  );
+  const CNAB_URL = `${BASE_URL}CNABOperations`;
+  
+  const { mutate } = useSWRConfig();
+  const { data, error, isLoading } = useSWR(CNAB_URL, jsonFetcher);
 
   const [file, setFile] = useState();
-  const [fileError, setFileError] = useState('');
+  const [fileMessage, setFileMessage] = useState("");
 
   const saveFile = (e) => {
     setFile(e.target.files[0]);
   };
 
   const handleUpload = async () => {
-    setFileError('')
+    setFileMessage("");
 
     const formData = new FormData();
     formData.append("formFile", file);
 
     try {
-      const result = await axios.post(`${BASE_URL}CNABOperations`, formData);
+      const result = await axios.post(CNAB_URL, formData);
 
       if (result.status === 200) {
-        mutate(`${BASE_URL}CNABOperations`);
+        mutate(CNAB_URL);
       }
 
+      setFileMessage("Arquivo enviado com sucesso!")
+
     } catch (error) {
-      setFileError("Houve um erro ao realziar o upload")
+      setFileMessage("Houve um erro ao realizar o upload");
     }
   };
 
@@ -45,8 +46,8 @@ export default function Index() {
   return (
     <>
       <UploadFile handleUpload={handleUpload} saveFile={saveFile} />
-      
-      {fileError && <div>{fileError}</div>}
+
+      {fileMessage && <div>{fileMessage}</div>}
 
       <DisplayStores stores={data} />
     </>
