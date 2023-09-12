@@ -19,13 +19,18 @@ export const CNABGrid = ({ CNABData }) => {
   const ContainerBody = styled.div``;
 
   return (
-    <>
+    <>      
       <div>
         Saldo total é :{" "}
         <TotalContainer Total={CNABData.total}>
           {formatCurrency(CNABData.total)}
         </TotalContainer>
       </div>
+
+      <div>
+        <span className="description-operation-list">Lista de Operações:</span>
+      </div>
+
       <Container>
         <ContainerHeader>Valor</ContainerHeader>
         <ContainerHeader>CPF</ContainerHeader>

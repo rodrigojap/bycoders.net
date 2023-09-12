@@ -20,16 +20,19 @@ export const DisplayStores = ({ stores }) => {
       </span>
 
       {stores.length > 0 ? (
-        <ul>
-          {stores.map((item) => (
-            <ListItem
-              key={item}
-              onClick={() => push(`/details?storeName=${item}`)}
-            >
-              {item}
-            </ListItem>
-          ))}
-        </ul>
+        <div className="store-list-container">
+          <ul className="unordered-store-list-items">
+            {stores.map((item) => (
+              <ListItem
+                className={`store-list-item`}  
+                key={item}
+                onClick={() => push(`/details?storeName=${item}`)}
+              >
+                {item}
+              </ListItem>
+            ))}
+          </ul>
+        </div>
       ) : (
         <div>
           Nenhuma operação registrada no momento... tente fazer o upload do CNAB

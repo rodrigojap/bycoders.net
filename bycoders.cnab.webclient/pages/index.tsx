@@ -47,7 +47,7 @@ export default function Index() {
     <>
       <UploadFile handleUpload={handleUpload} saveFile={saveFile} />
 
-      {fileMessage && <div>{fileMessage}</div>}
+      {fileMessage && <div className="display-message">{fileMessage}</div>}
 
       <DisplayStores stores={data} />
     </>

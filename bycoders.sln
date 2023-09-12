@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FED22289
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit", "Unit", "{F753BD05-94C0-45AD-B76F-FF8E8FEE6B8F}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration", "Integration", "{163EE69B-9CE0-4425-86FB-C04C16802900}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Automated", "Automated", "{163EE69B-9CE0-4425-86FB-C04C16802900}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.api", "bycoders.cnab.api\bycoders.cnab.api.csproj", "{24E1C37D-E5E9-4B8A-ADA3-AC03EB811183}"
 EndProject
@@ -29,15 +29,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{3F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.services", "bycoders.cnab.services\bycoders.cnab.services.csproj", "{FCFA43A5-04AD-43CD-A3C1-3CF83E90E327}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.unit.tests", "Tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests.csproj", "{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.unit.tests", "Tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests\bycoders.cnab.unit.tests.csproj", "{1ECC6A95-BDB0-4F65-8C46-E28420752DB1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Extensions", "Extensions", "{78B4B192-BCF5-4255-B3A8-DF046556F11A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.extensions", "bycoders.cnab.extensions\bycoders.cnab.extensions.csproj", "{A21469D7-3F08-423B-80A2-E4CF81A0CB80}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.extensions", "bycoders.cnab.extensions\bycoders.cnab.extensions.csproj", "{A21469D7-3F08-423B-80A2-E4CF81A0CB80}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{60012432-BB6F-4BE0-B98F-84434728ABE0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.data", "bycoders.cnab.infra\bycoders.cnab.data\bycoders.cnab.data.csproj", "{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bycoders.cnab.data", "bycoders.cnab.infra\bycoders.cnab.data\bycoders.cnab.data.csproj", "{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bycoders.cnab.automated.tests", "Tests\bycoders.cnab.automated.tests\bycoders.cnab.automated.tests.csproj", "{6542D13B-F07E-4BE8-88C2-F414EB96D2EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -77,6 +79,10 @@ Global
 		{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6542D13B-F07E-4BE8-88C2-F414EB96D2EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6542D13B-F07E-4BE8-88C2-F414EB96D2EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6542D13B-F07E-4BE8-88C2-F414EB96D2EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6542D13B-F07E-4BE8-88C2-F414EB96D2EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +103,7 @@ Global
 		{A21469D7-3F08-423B-80A2-E4CF81A0CB80} = {78B4B192-BCF5-4255-B3A8-DF046556F11A}
 		{60012432-BB6F-4BE0-B98F-84434728ABE0} = {72B29D96-AF0B-48D9-A5D2-EF3156F8AFE5}
 		{E2D204BA-A970-4FFA-9D7F-7E3083EB31F8} = {60012432-BB6F-4BE0-B98F-84434728ABE0}
+		{6542D13B-F07E-4BE8-88C2-F414EB96D2EE} = {163EE69B-9CE0-4425-86FB-C04C16802900}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC54F196-CFFA-49DC-8153-F0B019385BBF}
